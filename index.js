@@ -55,9 +55,10 @@ app.post("/webhook", async (req, res) => {
       const systemPrompt =
         "คุณคือ Mochi แชทบอทผู้ช่วยสุดน่ารัก ตอบแบบสั้น กระชับ และเป็นกันเอง";
 
-      const reply = await fetchChatResponse(systemPrompt, userMessage);
+     const reply = (await fetchChatResponse(systemPrompt, userMessage)).trim();
 
-      await replyMessage(event.replyToken, reply);
+        await replyMessage(event.replyToken, reply);
+
     }
   }
 
